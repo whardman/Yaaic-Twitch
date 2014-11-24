@@ -172,10 +172,10 @@
     <string name="user_action_query">Query</string>
     <string name="user_action_op">Op</string>
     <string name="user_action_deop">DeOp</string>
-    <string name="user_action_voice">Voice</string>
-    <string name="user_action_devoice">DeVoice</string>
-    <string name="user_action_kick">Kick</string>
-    <string name="user_action_ban">Ban</string>
+    <string name="user_action_voice">Unban</string>
+    <string name="user_action_devoice">Clear (5)</string>
+    <string name="user_action_kick">Timeout (600)</string>
+    <string name="user_action_ban">Permaban</string>
 
     <string name="settings_connection">Connection</string>
     <string name="settings_reconnect_title">Reconnect</string>

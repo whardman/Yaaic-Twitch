@@ -20,10 +20,10 @@ You should have received a copy of the GNU General Public License
 along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.yaaic"
+    package="org.yaaic.twitch"
     android:installLocation="auto"
     android:versionCode="12"
-    android:versionName="1.1-SNAPSHOT" >
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -34,11 +34,11 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
 
     <application
         android:icon="@drawable/icon"
-        android:label="Yaaic"
+        android:label="Yaaic (Twitch)"
         android:theme="@style/Theme.Yaaic"
         android:allowBackup="true">
         <activity
-            android:name=".activity.ServersActivity"
+            android:name="org.yaaic.activity.ServersActivity"
             android:label="@string/app_name"
             android:launchMode="standard" >
             <intent-filter>
@@ -48,7 +48,7 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AddServerActivity"
+            android:name="org.yaaic.activity.AddServerActivity"
             android:label="@string/add_server_label" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -60,54 +60,54 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ConversationActivity"
+            android:name="org.yaaic.activity.ConversationActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
         <activity
-            android:name=".activity.AboutActivity"
+            android:name="org.yaaic.activity.AboutActivity"
             android:label="@string/about_label"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name="org.yaaic.activity.SettingsActivity"
             android:label="@string/settings_label" >
         </activity>
         <activity
-            android:name=".activity.JoinActivity"
+            android:name="org.yaaic.activity.JoinActivity"
             android:label="@string/join_label"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.UsersActivity"
+            android:name="org.yaaic.activity.UsersActivity"
             android:label="@string/users"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.AddAliasActivity"
+            android:name="org.yaaic.activity.AddAliasActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.AddChannelActivity"
+            android:name="org.yaaic.activity.AddChannelActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.AddCommandsActivity"
+            android:name="org.yaaic.activity.AddCommandsActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.MessageActivity"
+            android:name="org.yaaic.activity.MessageActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.UserActivity"
+            android:name="org.yaaic.activity.UserActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name=".activity.AuthenticationActivity"
+            android:name="org.yaaic.activity.AuthenticationActivity"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
 
-        <service android:name=".irc.IRCService" >
+        <service android:name="org.yaaic.irc.IRCService" >
         </service>
     </application>
 

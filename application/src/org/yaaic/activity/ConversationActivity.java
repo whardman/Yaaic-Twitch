@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.Yaaic;
 import org.yaaic.adapter.ConversationPagerAdapter;
 import org.yaaic.adapter.MessageListAdapter;
@@ -53,6 +53,7 @@ import org.yaaic.receiver.ServerReceiver;
 
 import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -68,8 +69,11 @@ import android.speech.RecognizerIntent;
 import android.support.v4.view.ViewPager;
 import android.text.InputType;
 import android.text.method.TextKeyListener;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.view.View.OnKeyListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -163,13 +167,23 @@ public class ConversationActivity extends SherlockActivity implements ServiceCon
             }
 
             // Nick completion
-            if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+            if (keyCode == KeyEvent.KEYCODE_MENU) {
                 doNickCompletion(input);
                 return true;
             }
 
             return false;
         }
+    };
+    
+    private final OnClickListener inputClickListener = new OnClickListener() {
+    	
+    	public void onClick(View v)
+    	{
+    		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+    		imm.showSoftInput(v,InputMethodManager.SHOW_FORCED);
+    	}
+    
     };
 
     /**
@@ -182,6 +196,7 @@ public class ConversationActivity extends SherlockActivity implements ServiceCon
 
         serverId = getIntent().getExtras().getInt("serverId");
         server = Yaaic.getInstance().getServerById(serverId);
+        server.setConversationActivity(this);
         Settings settings = new Settings(this);
 
         // Finish activity if server does not exist anymore - See #55
@@ -200,6 +215,7 @@ public class ConversationActivity extends SherlockActivity implements ServiceCon
 
         EditText input = (EditText) findViewById(R.id.input);
         input.setOnKeyListener(inputKeyListener);
+        input.setOnClickListener(inputClickListener);
 
         pager = (ViewPager) findViewById(R.id.pager);
 
@@ -632,6 +648,13 @@ public class ConversationActivity extends SherlockActivity implements ServiceCon
             }
         }
     }
+    
+    public void LoadUserOptions(String username, String channel)
+    {
+    	Intent i = new Intent();
+    	i.putExtra(Extra.USER, username);
+    	onActivityResult(REQUEST_CODE_USERS, RESULT_OK, i);
+    }
 
     /**
      * On activity result
@@ -729,16 +752,20 @@ public class ConversationActivity extends SherlockActivity implements ServiceCon
                                 connection.deOp(conversation, nicknameWithoutPrefix);
                                 break;
                             case User.ACTION_VOICE:
-                                connection.voice(conversation, nicknameWithoutPrefix);
+                                connection.sendMessage(conversation, ".unban " + nicknameWithoutPrefix);
+                                Log.d("SR", conversation + " - " + ".unban " + nicknameWithoutPrefix);
                                 break;
                             case User.ACTION_DEVOICE:
-                                connection.deVoice(conversation, nicknameWithoutPrefix);
+                                connection.sendMessage(conversation, ".timeout " + nicknameWithoutPrefix + " 5");
+                                Log.d("SR", conversation + " - " + ".timeout " + nicknameWithoutPrefix + " 5");
                                 break;
                             case User.ACTION_KICK:
-                                connection.kick(conversation, nicknameWithoutPrefix);
+                                connection.sendMessage(conversation, ".timeout " + nicknameWithoutPrefix + " 600");
+                                Log.d("SR", conversation + " - " + ".timeout " + nicknameWithoutPrefix + " 600");
                                 break;
                             case User.ACTION_BAN:
-                                connection.ban(conversation, nicknameWithoutPrefix + "!*@*");
+                                connection.sendMessage(conversation, ".ban " + nicknameWithoutPrefix);
+                                Log.d("SR", conversation + " - " + ".ban " + nicknameWithoutPrefix);
                                 break;
                         }
                     }

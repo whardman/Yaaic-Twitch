@@ -20,7 +20,7 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.yaaic.adapter;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.model.User;
 
 import android.content.Context;
@@ -42,10 +42,10 @@ public class UserActionListAdapter extends BaseAdapter
      * Action IDs
      */
     private final int[] actions = {
-        User.ACTION_REPLY,
-        User.ACTION_QUERY,
-        User.ACTION_OP,
-        User.ACTION_DEOP,
+        //User.ACTION_REPLY,
+        //User.ACTION_QUERY,
+        //User.ACTION_OP,
+        //User.ACTION_DEOP,
         User.ACTION_VOICE,
         User.ACTION_DEVOICE,
         User.ACTION_KICK,
@@ -56,10 +56,10 @@ public class UserActionListAdapter extends BaseAdapter
      * Labels for actions
      */
     private final int[] labels = {
-        R.string.user_action_reply,
-        R.string.user_action_query,
-        R.string.user_action_op,
-        R.string.user_action_deop,
+        //R.string.user_action_reply,
+        //R.string.user_action_query,
+        //R.string.user_action_op,
+        //R.string.user_action_deop,
         R.string.user_action_voice,
         R.string.user_action_devoice,
         R.string.user_action_kick,
@@ -70,10 +70,10 @@ public class UserActionListAdapter extends BaseAdapter
      * Icons for actions
      */
     private final int[] icons = {
-        R.drawable.action_reply,
-        R.drawable.action_query,
-        R.drawable.action_op,
-        R.drawable.action_deop,
+        //R.drawable.action_reply,
+        //R.drawable.action_query,
+        //R.drawable.action_op,
+        //R.drawable.action_deop,
         R.drawable.action_voice,
         R.drawable.action_devoice,
         R.drawable.action_kick,

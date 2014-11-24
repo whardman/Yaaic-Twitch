@@ -36,7 +36,7 @@ public class ServerInfo extends Conversation
      */
     public ServerInfo()
     {
-        super(DEFAULT_NAME);
+        super(DEFAULT_NAME, null);
     }
 
     /**

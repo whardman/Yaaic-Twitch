@@ -29,7 +29,7 @@ import java.util.LinkedHashMap;
 
 import org.jibble.pircbot.IrcException;
 import org.jibble.pircbot.NickAlreadyInUseException;
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.Yaaic;
 import org.yaaic.activity.ServersActivity;
 import org.yaaic.db.Database;

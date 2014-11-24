@@ -42,6 +42,7 @@ public class MessageListAdapter extends BaseAdapter
     private final LinkedList<TextView> messages;
     private final Context context;
     private int historySize;
+    private Conversation con;
 
     /**
      * Create a new MessageAdapter
@@ -52,12 +53,12 @@ public class MessageListAdapter extends BaseAdapter
     public MessageListAdapter(Conversation conversation, Context context)
     {
         LinkedList<TextView> messages = new LinkedList<TextView>();
-
+        con = conversation;
         // Render channel name as first message in channel
         if (conversation.getType() != Conversation.TYPE_SERVER) {
             Message header = new Message(conversation.getName());
             header.setColor(Message.COLOR_RED);
-            messages.add(header.renderTextView(context));
+            messages.add(header.renderTextView(conversation, context));
         }
 
         // Optimization - cache field lookups
@@ -65,7 +66,7 @@ public class MessageListAdapter extends BaseAdapter
         int mSize = mHistory.size();
 
         for (int i = 0; i < mSize; i++) {
-            messages.add(mHistory.get(i).renderTextView(context));
+            messages.add(mHistory.get(i).renderTextView(conversation, context));
         }
 
         // XXX: We don't want to clear the buffer, we want to add only
@@ -84,7 +85,7 @@ public class MessageListAdapter extends BaseAdapter
      */
     public void addMessage(Message message)
     {
-        messages.add(message.renderTextView(context));
+        messages.add(message.renderTextView(con, context));
 
         if (messages.size() > historySize) {
             messages.remove(0);
@@ -105,7 +106,7 @@ public class MessageListAdapter extends BaseAdapter
         int mSize = messages.size();
 
         for (int i = mSize - 1; i > -1; i--) {
-            mMessages.add(messages.get(i).renderTextView(mContext));
+            mMessages.add(messages.get(i).renderTextView(con, mContext));
 
             if (mMessages.size() > historySize) {
                 mMessages.remove(0);

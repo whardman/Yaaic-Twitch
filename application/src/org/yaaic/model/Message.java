@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.util.Linkify;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -319,7 +320,7 @@ public class Message
      * @param context
      * @return
      */
-    public TextView renderTextView(Context context)
+    public TextView renderTextView(Conversation channel, Context context)
     {
         // XXX: We should not read settings here ALWAYS for EVERY textview
         Settings settings = new Settings(context);
@@ -334,11 +335,22 @@ public class Message
         canvas.setTextSize(settings.getFontSize());
         canvas.setTypeface(Typeface.MONOSPACE);
         canvas.setTextColor(COLOR_DEFAULT);
+        //String tmp = null;
+        //if (hasSender())
+        //	tmp = s
+        final String user = this.sender;
+        final Conversation conv = channel;
+        canvas.setOnClickListener(new android.view.View.OnClickListener() {
+        	public void onClick(android.view.View v)
+        	{
+        		if (conv.getActivity() != null && user != null)
+        			conv.getActivity().LoadUserOptions(user, conv.getName());
+        	}
+        });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             setupViewForHoneycombAndLater(canvas);
         }
-
         return canvas;
     }
 

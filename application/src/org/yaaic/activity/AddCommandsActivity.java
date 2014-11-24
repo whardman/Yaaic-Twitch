@@ -22,7 +22,7 @@ package org.yaaic.activity;
 
 import java.util.ArrayList;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.model.Extra;
 
 import android.app.Activity;
@@ -96,9 +96,6 @@ public class AddCommandsActivity extends Activity implements OnClickListener, On
             case R.id.add:
                 String command = commandInput.getText().toString().trim();
 
-                if (!command.startsWith("/")) {
-                    command = "/" + command;
-                }
 
                 commands.add(command);
                 adapter.add(command);

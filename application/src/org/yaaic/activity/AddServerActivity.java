@@ -24,7 +24,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.Yaaic;
 import org.yaaic.db.Database;
 import org.yaaic.exception.ValidationException;

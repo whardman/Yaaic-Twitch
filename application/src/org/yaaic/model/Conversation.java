@@ -22,6 +22,8 @@ package org.yaaic.model;
 
 import java.util.LinkedList;
 
+import org.yaaic.activity.ConversationActivity;
+
 /**
  * Base class for conversations
  * 
@@ -49,6 +51,7 @@ public abstract class Conversation
     private int status = 1;
     private int newMentions = 0;
     private int historySize = DEFAULT_HISTORY_SIZE;
+    private ConversationActivity activity;
 
     /**
      * Get the type of conversation (channel, query, ..)
@@ -62,11 +65,17 @@ public abstract class Conversation
      * 
      * @param name The name of the conversation (channel, user)
      */
-    public Conversation(String name)
+    public Conversation(String name, ConversationActivity ca)
     {
         this.buffer = new LinkedList<Message>();
         this.history = new LinkedList<Message>();
         this.name = name.toLowerCase();
+        activity = ca;
+    }
+    
+    public ConversationActivity getActivity()
+    {
+    	return activity;
     }
 
     /**

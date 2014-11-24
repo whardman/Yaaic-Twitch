@@ -40,7 +40,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.viewpagerindicator.PageIndicator;
-import com.viewpagerindicator.R;
+import org.yaaic.twitch.R;
 
 /**
  * A TitlePageIndicator is a PageIndicator which displays the title of left view

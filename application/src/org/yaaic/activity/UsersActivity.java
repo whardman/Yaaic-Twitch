@@ -22,7 +22,7 @@ package org.yaaic.activity;
 
 import java.util.Arrays;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.model.Extra;
 
 import android.app.ListActivity;

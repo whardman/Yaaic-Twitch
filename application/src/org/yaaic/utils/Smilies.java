@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
+import org.yaaic.activity.ConversationActivity;
 
 /**
  * A server as we know it
@@ -52,6 +53,8 @@ public class Server
     private String selected = "";
     private boolean isForeground = false;
     private boolean mayReconnect = false;
+    
+    private ConversationActivity activity;
 
     /**
      * Create a new server object
@@ -60,6 +63,16 @@ public class Server
     {
         conversations.put(ServerInfo.DEFAULT_NAME, new ServerInfo());
         this.selected = ServerInfo.DEFAULT_NAME;
+    }
+    
+    public void setConversationActivity(ConversationActivity ca)
+    {
+    	activity = ca;
+    }
+    
+    public ConversationActivity getConversationActivty()
+    {
+    	return activity;
     }
 
     /**

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Yaaic</string>
-    <string name="app_full_name" translatable="false">Yet Another Android IRC Client</string>
-    <string name="app_version" translatable="false">1.1-SNAPSHOT</string>
+    <string name="app_name" translatable="false">Yaaic (Twitch)</string>
+    <string name="app_full_name" translatable="false">Yet Another Android IRC Client (Twitch Variant)</string>
+    <string name="app_version" translatable="false">1.0</string>
     <string name="app_homepage" translatable="false">http://www.yaaic.org</string>
     <string name="app_irc" translatable="false">irc://irc.epd-me.net/yaaic</string>
     <string name="app_copyright" translatable="false">&#169; 2009-2013 Sebastian Kaspari</string>

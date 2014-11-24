@@ -21,7 +21,7 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
 package org.yaaic.command.handler;
 
 import org.jibble.pircbot.User;
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.command.BaseHandler;
 import org.yaaic.exception.CommandException;
 import org.yaaic.irc.IRCService;

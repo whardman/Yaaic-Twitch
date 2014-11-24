@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 import org.jibble.pircbot.NickAlreadyInUseException;
 import org.jibble.pircbot.PircBot;
 import org.jibble.pircbot.User;
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.Yaaic;
 import org.yaaic.command.CommandParser;
 import org.yaaic.model.Broadcast;
@@ -403,7 +403,7 @@ public class IRCConnection extends PircBot
     {
         if (sender.equalsIgnoreCase(getNick()) && server.getConversation(target) == null) {
             // We joined a new channel
-            Conversation conversation = new Channel(target);
+            Conversation conversation = new Channel(target, server.getConversationActivty());
             conversation.setHistorySize(service.getSettings().getHistorySize());
             server.addConversation(conversation);
 

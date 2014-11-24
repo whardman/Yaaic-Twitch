@@ -20,6 +20,8 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.yaaic.model;
 
+import org.yaaic.activity.ConversationActivity;
+
 /**
  * An IRC channel (extends Conversation)
  * 
@@ -34,9 +36,9 @@ public class Channel extends Conversation
      * 
      * @param name of the channel
      */
-    public Channel(String name)
+    public Channel(String name, ConversationActivity ca)
     {
-        super(name);
+        super(name, ca);
         this.topic = "";
     }
 

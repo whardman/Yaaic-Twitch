@@ -20,7 +20,7 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.yaaic.activity;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 
 import android.os.Bundle;
 

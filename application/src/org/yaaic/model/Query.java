@@ -20,6 +20,8 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.yaaic.model;
 
+import org.yaaic.activity.ConversationActivity;
+
 /**
  * A query (a private chat between to users)
  * 
@@ -34,7 +36,7 @@ public class Query extends Conversation
      */
     public Query(String name)
     {
-        super(name);
+        super(name, null);
     }
 
     /**

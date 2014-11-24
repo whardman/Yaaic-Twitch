@@ -22,7 +22,7 @@ package org.yaaic.activity;
 
 import java.util.ArrayList;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.Yaaic;
 import org.yaaic.adapter.ServerListAdapter;
 import org.yaaic.db.Database;

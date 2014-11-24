@@ -23,7 +23,7 @@ package org.yaaic.command.handler;
 import java.util.HashMap;
 import java.util.Set;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 import org.yaaic.command.BaseHandler;
 import org.yaaic.command.CommandParser;
 import org.yaaic.exception.CommandException;

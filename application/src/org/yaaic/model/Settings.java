@@ -21,7 +21,7 @@ along with Yaaic.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.yaaic.model;
 
-import org.yaaic.R;
+import org.yaaic.twitch.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
